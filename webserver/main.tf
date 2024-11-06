@@ -5,6 +5,7 @@ resource "aws_instance" "web" {
   associate_public_ip_address = "true"
   subnet_id = var.subnet_id
   
+  vpc_security_group_ids = [aws_security_group.allow_http.id]
   
   user_data = <<EOF
 yum update -y
