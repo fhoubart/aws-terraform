@@ -1,7 +1,7 @@
 resource "aws_vpc" "vpc" {
   cidr_block = "10.0.0.0/16"
   tags = {
-    Name = "main-tf"
+    Name = "tf-vpc-${var.env}"
     Env = var.env
   }
 }
@@ -20,7 +20,7 @@ resource "aws_internet_gateway" "gw" {
   vpc_id = aws_vpc.vpc.id
 
   tags = {
-    Name = "main"
+    Name = "tfvpc-${var.env}"
     Env = var.env
   }
 }
