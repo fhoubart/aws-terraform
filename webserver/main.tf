@@ -2,12 +2,10 @@ resource "aws_instance" "web" {
   ami           = var.ami
   instance_type = var.machine_type
 
-
-  network_interface {
-    network_interface_id = aws_network_interface.interface.id
-    device_index         = 0
-  }
-
+  associate_public_ip_address = "true"
+  subnet_id = var.subnet_id
+  
+  
   user_data = <<EOF
 yum update -y
 yum install git
