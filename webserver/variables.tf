@@ -14,6 +14,9 @@ variable "ami" {
 variable subnet_id {
     type = string
 }
+variable vpc_id {
+    type = string
+}
 
 variable "repo" {
     type = string
