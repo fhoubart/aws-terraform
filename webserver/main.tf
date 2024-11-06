@@ -14,7 +14,7 @@ resource "aws_instance" "web" {
 }
 
 resource "aws_network_interface" "interface" {
-  subnet_id   = aws_subnet.public.id
+  subnet_id   = var.subnet_id
 
   tags = {
     Name = "primary_network_interface"

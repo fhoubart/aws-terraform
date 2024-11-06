@@ -11,6 +11,10 @@ variable "ami" {
     type = string
 }
 
+variable subnet_id {
+    type = string
+}
+
 variable "env" {
     type = string
     description = "The environment that is deployed dev/preprod/prod)"

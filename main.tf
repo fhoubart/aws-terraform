@@ -30,6 +30,7 @@ module "webserver1" {
     name = "webserver1-${var.env}"
     machine_type = var.machine_type
     ami = "ami-06b21ccaeff8cd686"
+    subnet_id = aws_subnet.public.id
     env = var.env
 }
 
@@ -38,6 +39,7 @@ module "webserver2" {
     name = "webserver2-${var.env}"
     machine_type = var.machine_type
     ami = "ami-06b21ccaeff8cd686"
+    subnet_id = aws_subnet.public.id
     env = var.env
 }
 
