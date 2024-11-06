@@ -2,6 +2,7 @@ resource "aws_vpc" "vpc" {
   cidr_block = "10.0.0.0/16"
   tags = {
     Name = "main-tf"
+    Env = var.env
   }
 }
 
@@ -11,6 +12,7 @@ resource "aws_subnet" "public" {
 
   tags = {
     Name = "Public subnet"
+    Env = var.env
   }
 }
 
@@ -19,6 +21,7 @@ resource "aws_internet_gateway" "gw" {
 
   tags = {
     Name = "main"
+    Env = var.env
   }
 }
 
@@ -28,5 +31,9 @@ resource "aws_route_table" "public-route-table" {
   route {
     cidr_block = "0.0.0.0/24"
     gateway_id = aws_internet_gateway.gw.id
+  }
+
+  tags = {
+    Env = var.env
   }
 }

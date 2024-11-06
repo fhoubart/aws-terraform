@@ -35,7 +35,8 @@ resource "aws_instance" "web" {
   }
 
   tags = {
-    Name = "HelloWorld"
+    Name = "HelloWorld-${var.env}"
+    Env = var.env
   }
 }
 

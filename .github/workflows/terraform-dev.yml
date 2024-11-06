@@ -32,4 +32,4 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Terraform apply
         run: |
-          terraform apply -auto-approve  --var-file=var-dev.tfvars
+          terraform apply -auto-approve  --var-file=var-dev.tfvars -var=env=dev
