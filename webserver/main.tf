@@ -37,5 +37,9 @@ resource "aws_network_interface" "interface" {
   }
 }
 
+resource "aws_eip" "publicip" {
+  network_interface = "${aws_network_interface.interface.id}"
+}
+
 
 
