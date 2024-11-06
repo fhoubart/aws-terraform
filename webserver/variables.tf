@@ -15,6 +15,14 @@ variable subnet_id {
     type = string
 }
 
+variable "repo" {
+    type = string
+    description = "The repo to clone to get the website content"
+}
+variable "web_folder" {
+    type = string
+    description = "The folder inside the repo that contains the static website"
+}
 variable "env" {
     type = string
     description = "The environment that is deployed dev/preprod/prod)"

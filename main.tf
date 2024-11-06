@@ -31,6 +31,8 @@ module "webserver1" {
     machine_type = var.machine_type
     ami = "ami-06b21ccaeff8cd686"
     subnet_id = aws_subnet.public.id
+    repo = "https://fhoubart@bitbucket.org/fhoubart/testphaser_aws.git"
+    web_folder = "public_html"
     env = var.env
 }
 
@@ -40,6 +42,8 @@ module "webserver2" {
     machine_type = var.machine_type
     ami = "ami-06b21ccaeff8cd686"
     subnet_id = aws_subnet.public.id
+    repo = "https://github.com/doersino/nyum.git"
+    web_folder = "_site"
     env = var.env
 }
 
