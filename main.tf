@@ -25,26 +25,19 @@ provider "aws" {
 #   }
 # }
 
-resource "aws_instance" "web" {
-  ami           = "ami-06b21ccaeff8cd686"
-  instance_type = var.machine_type
-
-  network_interface {
-    network_interface_id = aws_network_interface.interface.id
-    device_index         = 0
-  }
-
-  tags = {
-    Name = "HelloWorld-${var.env}"
-    Env = var.env
-  }
+module "webserver1" {
+    source = "./webserver"
+    name = "webserver1-${var.env}"
+    machine_type = var.machine_type
+    ami = "ami-06b21ccaeff8cd686"
+    env = var.env
 }
 
-resource "aws_network_interface" "interface" {
-  subnet_id   = aws_subnet.public.id
-
-  tags = {
-    Name = "primary_network_interface"
-  }
+module "webserver2" {
+    source = "./webserver"
+    name = "webserver2-${var.env}"
+    machine_type = var.machine_type
+    ami = "ami-06b21ccaeff8cd686"
+    env = var.env
 }
 
