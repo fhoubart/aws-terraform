@@ -2,7 +2,6 @@ resource "aws_instance" "web" {
   ami           = var.ami
   instance_type = var.machine_type
 
-  associate_public_ip_address = "true"
 
   network_interface {
     network_interface_id = aws_network_interface.interface.id
