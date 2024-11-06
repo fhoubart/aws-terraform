@@ -6,7 +6,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "tf-state-lab"
+    bucket = "bucket-cf-template-s3"
     key    = "tf-state"
     region = "us-east-1"
   }
@@ -17,7 +17,7 @@ provider "aws" {
 }
 
 # resource "aws_s3_bucket" "tf-state" {
-#   bucket = "bucket-cf-template-s3"
+#   bucket = "bucket-cf-template"
 
 #   tags = {
 #     Name        = "Terraform remote state"
